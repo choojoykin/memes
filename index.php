@@ -10,7 +10,7 @@ isset($_GET['site']) ? $RSS = new RSS($_GET['site']) : $RSS = new RSS();
 if ($_GET['format'] == 'json') {
     header('Content-type:application/json;charset=utf-8');
 	
-	$button_joke_text = "Еще мем";
+	$button_meme_text = "Еще мем";
 	$button_help_text = "Показать справку";
 	
     
@@ -20,8 +20,8 @@ if ($_GET['format'] == 'json') {
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
 						
 	$joke_telegram_text = 
-		"С сайта «[".$RSS->getSiteTitle()."](".$RSS->getSiteLink().")»... \n\n".
-		"[".$RSS->getRssItemTitle()."](".$RSS->getRssItemLink()."): \n".
+		"С сайта «".$RSS->getSiteTitle()."»... \n\n".
+		"*".$RSS->getRssItemTitle()."*: \n".
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
 		
 	$joke_slack_text = 
@@ -42,13 +42,13 @@ if ($_GET['format'] == 'json') {
 			// для Telegram
 			'telegram' => array (
 				'parse_mode' => 'Markdown',
-				'disable_web_page_preview' => 'yes',
+				'disable_web_page_preview' => 'no',
 				'text' => $joke_telegram_text,
 				'reply_markup' => array (
 					'keyboard' => array (
 						array (
 							array (
-								'text' => $button_joke_text,
+								'text' => $button_meme_text,
 							),
 						),
 						array (
@@ -74,7 +74,7 @@ if ($_GET['format'] == 'json') {
 						'actions' => array (
 							array (
 								'name' => 'memes',
-								'text' => $button_joke_text,
+								'text' => $button_meme_text,
 								'type' => 'button',
 								'style' => 'primary',
 								'value' => 'memes',
