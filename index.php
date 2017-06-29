@@ -51,11 +51,13 @@ if ($_GET['format'] == 'json') {
 								'text' => $button_meme_text,
 							),
 						),
+						/*
 						array (
 							array (
 								'text' => $button_help_text,
 							),
 						),
+						*/
 					),
 					'resize_keyboard' => true,
 					'one_time_keyboard' => true,
@@ -79,12 +81,14 @@ if ($_GET['format'] == 'json') {
 								'style' => 'primary',
 								'value' => 'memes',
 							),
+							/*
 							array (
 								'name' => 'help',
 								'text' => $button_help_text,
 								'type' => 'button',
 								'value' => 'help',
 							),
+							*/
 						),
 					),
 				),
