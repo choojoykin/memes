@@ -16,7 +16,7 @@ if ($_GET['format'] == 'json') {
     
     $meme_plain_text = 
 		"С сайта «".$RSS->getSiteTitle()."»... \n\n".
-		$RSS->getRssItemTitle()." (".$RSS->getRssItemLink()."): \n".
+		$RSS->getRssItemTitle().": \n".
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
 						
 	$meme_telegram_text = 
