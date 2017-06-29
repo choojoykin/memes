@@ -1,6 +1,6 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-# Скрипты для интеграции чат-бота [Joker](https://joker-site.herokuapp.com/) с сервисом [API.AI](https://api.ai/)
+# Скрипты для интеграции чат-бота Memes с сервисом [API.AI](https://api.ai/)
 Скрипт получает URL-адрес RSS-ленты указанного сайта (если сайт не указан, то берет рандомный сайт). Адрес RSS-ленты берется из [конфига](rss/sites.ini) в блоке, соответствующем указанному названию сайта. Далее парсит RSS-ленту и выдает требуемые поля в формате HTML/JSON.
 Это необходимо для [интеграции с сервисом API.AI с помощью webhook](https://docs.api.ai/docs/webhook) (в JSON-ответе используеся [минимальное кол-во полей](https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service)).
 
@@ -13,9 +13,9 @@
 
 ## Примеры использования: 
 **Получить случайную цитату с рандомного сайта из числа перечисленных в [конфиге](rss/sites.ini):**
-  - вывод в HTML-формате: https://joker-integrations.herokuapp.com/?format=html или просто: https://joker-integrations.herokuapp.com/
-  - вывод в JSON-формате: https://joker-integrations.herokuapp.com/?format=json
+  - вывод в HTML-формате: https://memes-integrations.herokuapp.com/?format=html или просто: https://memes-integrations.herokuapp.com/
+  - вывод в JSON-формате: https://memes-integrations.herokuapp.com/?format=json
 
 **Получить случайную цитату с Баша:**
-  - вывод в HTML-формате: https://joker-integrations.herokuapp.com/?site=bash&format=html или просто: https://joker-integrations.herokuapp.com/?site=bash
-  - вывод в JSON-формате: https://joker-integrations.herokuapp.com/?site=bash&format=json
+  - вывод в HTML-формате: https://memes-integrations.herokuapp.com/?site=bash&format=html или просто: https://memes-integrations.herokuapp.com/?site=bash
+  - вывод в JSON-формате: https://memes-integrations.herokuapp.com/?site=bash&format=json
