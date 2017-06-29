@@ -442,7 +442,7 @@ class RSS {
 	  	$s = str_replace('</p>', ' ', $s); // replace end of paragrapf -> space
 	  	$s = str_replace(array('<br>','<br/>','<br />'), "\n", $s); // replace line break -> new line
 	  	$s = str_replace(array('image/seemem/','alt=""','title=""'), "", $s); // replace image prefix and meta
-	  	$s = preg_replace('/<img.* src="(http.*)" .*>/i', '${1}', $s, -1); // replace <img> tag -> link to the image
+	  	$s = preg_replace('/<img.*src="(http.*)".*>/i', '${1}', $s, -1); // replace <img> tag -> link to the image
 	  	$s = preg_replace('/  +/', ' ', $s, -1); // replace tab(s) -> space
 		
 	  	$s = strip_tags($s); // remove other HTML tags
