@@ -144,6 +144,9 @@ class RSS {
     
     // Подавляем все ошибки XML для последующей самостоятельной обработки
     libxml_use_internal_errors(true);
+	
+	// Сайты часто блокируют запросы без корректного user_agent, поэтому прикинемся что мы Firefox
+    ini_set('user_agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:9.0) Gecko/20100101 Firefox/9.0');
     
     $xml = simplexml_load_file($rss_url, 'SimpleXMLElement', LIBXML_NOCDATA);
     
