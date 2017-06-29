@@ -1,0 +1,6 @@
+{
+  "name": "Joker",
+  "description": "Integrations scripts for Memes chatbot with API.AI",
+  "repository": "https://github.com/nikolaev-rd/memes",
+  "keywords": ["php", "api.ai"]
+}
