@@ -14,27 +14,27 @@ if ($_GET['format'] == 'json') {
 	$button_help_text = "Показать справку";
 	
     
-    $joke_plain_text = 
+    $meme_plain_text = 
 		"С сайта «".$RSS->getSiteTitle()."»... \n\n".
 		$RSS->getRssItemTitle()." (".$RSS->getRssItemLink()."): \n".
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
 						
-	$joke_telegram_text = 
+	$meme_telegram_text = 
 		"С сайта «".$RSS->getSiteTitle()."»... \n\n".
 		"*".$RSS->getRssItemTitle()."*: \n".
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
 		
-	$joke_slack_text = 
+	$meme_slack_text = 
 		"С сайта «<".$RSS->getSiteLink()."|".$RSS->getSiteTitle().">»... \n\n".
 		"<".$RSS->getRssItemLink()."|".$RSS->getRssItemTitle().">: \n".
 		$RSS->CleanUp_HTML($RSS->getRssItemText());
     
     $arr = array(
 		// ответ на запрос
-		'speech' => $joke_plain_text, 
+		'speech' => $meme_plain_text, 
 		
 		// текстовый ответ - на случай если его нет в расширенном ответе
-		'displayText' => $joke_plain_text, 
+		'displayText' => $meme_plain_text, 
 		
 		// расширенный ответ...
 		'data' => array (
@@ -43,7 +43,7 @@ if ($_GET['format'] == 'json') {
 			'telegram' => array (
 				'parse_mode' => 'Markdown',
 				'disable_web_page_preview' => 'no',
-				'text' => $joke_telegram_text,
+				'text' => $meme_telegram_text,
 				'reply_markup' => array (
 					'keyboard' => array (
 						array (
@@ -64,7 +64,7 @@ if ($_GET['format'] == 'json') {
 			
 			// для Slack
 			'slack' => array (
-				'text' => $joke_slack_text,
+				'text' => $meme_slack_text,
 				'attachments' => array (
 					array (
 						'title' => 'Жми кнопки:',
