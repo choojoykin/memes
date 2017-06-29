@@ -69,7 +69,7 @@ if ($_GET['format'] == 'json') {
 				'text' => $meme_slack_text,
 				'attachments' => array (
 					array (
-						'title' => 'Жми кнопки:',
+						'title' => 'Понравилось? Жми:',
 						//'text' => 'какой-то текст',
 						'callback_id' => 'quick_buttons',
 						'color' => '#3AA3E3',
