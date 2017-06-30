@@ -430,22 +430,7 @@ class RSS {
 	    $s = (string)$s;
 	    
 	  	$s = htmlspecialchars_decode($s, ENT_NOQUOTES); // decode characters in text, exclude quotes (it's important for JSON format)
-		/*
-	  	$s = str_replace("&quot;", "'", $s); // convert quotes
-	  	$s = str_replace("&laquo;", "«", $s); // convert quotes
-	  	$s = str_replace("&raquo;", "»", $s); // convert quotes
-	  	$s = str_replace("&amp;", "&", $s); // convert ampersand
-	  	$s = str_replace("&copy;", "©", $s); // convert copyright symbol
-	  	$s = str_replace("&trade;", "™", $s); // convert copyright symbol
-	  	$s = str_replace("&nbsp;", " ", $s); // convert space
-	  	$s = str_replace('\n ', "\n", $s); // remove space in the begining of the line
-	  	$s = str_replace('<p>', "\n", $s); // replace start of paragrapf -> new line
-	  	$s = str_replace('</p>', ' ', $s); // replace end of paragrapf -> space
-	  	$s = str_replace(array('<br>','<br/>','<br />'), "\n", $s); // replace line break -> new line
-	  	$s = str_replace(array('image/seemem/','alt=""','title=""'), "", $s); // replace image prefix and meta
-		*/
 	  	$s = preg_replace('#.*<img.*src=(\'|")(http.*)(\'|").*>.*#i', '${2}', $s, -1); // replace <img> tag -> link to the image
-	  	#$s = preg_replace('/  +/', ' ', $s, -1); // replace tab(s) -> space
 		
 	  	$s = strip_tags($s); // remove other HTML tags
 	  }
