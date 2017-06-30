@@ -430,6 +430,7 @@ class RSS {
 	    $s = (string)$s;
 	    
 	  	$s = htmlspecialchars_decode($s, ENT_NOQUOTES); // decode characters in text, exclude quotes (it's important for JSON format)
+		/*
 	  	$s = str_replace("&quot;", "'", $s); // convert quotes
 	  	$s = str_replace("&laquo;", "«", $s); // convert quotes
 	  	$s = str_replace("&raquo;", "»", $s); // convert quotes
@@ -442,8 +443,9 @@ class RSS {
 	  	$s = str_replace('</p>', ' ', $s); // replace end of paragrapf -> space
 	  	$s = str_replace(array('<br>','<br/>','<br />'), "\n", $s); // replace line break -> new line
 	  	$s = str_replace(array('image/seemem/','alt=""','title=""'), "", $s); // replace image prefix and meta
-	  	$s = preg_replace('/<img.*src="(http.*)".*>/i', '${1}', $s, -1); // replace <img> tag -> link to the image
-	  	$s = preg_replace('/  +/', ' ', $s, -1); // replace tab(s) -> space
+		*/
+	  	$s = preg_replace('#.*<img.*src=(\'|")(http.*)(\'|").*>.*#i', '${2}', $s, -1); // replace <img> tag -> link to the image
+	  	#$s = preg_replace('/  +/', ' ', $s, -1); // replace tab(s) -> space
 		
 	  	$s = strip_tags($s); // remove other HTML tags
 	  }
