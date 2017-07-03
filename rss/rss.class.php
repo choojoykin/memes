@@ -430,9 +430,8 @@ class RSS {
 	    $s = (string)$s;
 	    
 	  	$s = htmlspecialchars_decode($s, ENT_NOQUOTES); // decode characters in text, exclude quotes (it's important for JSON format)
-	  	$s = preg_replace('#.*<img.*src=(\'|")(http.*)(\'|") .*>.*#i', '${2}', $s, -1); // replace <img> tag -> link to the image
-		
-	  	$s = strip_tags($s); // remove other HTML tags
+	  	$s = strip_tags($s, '<img>'); // remove all HTML tags, exclude <img>
+	  	$s = preg_replace('#.*<img.*src=(\'|")(http.*)(\'|").*>.*#i', '${2}', $s, -1); // replace <img> tag -> link to the image
 	  }
   	
   	return $s;
